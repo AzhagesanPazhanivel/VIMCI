@@ -3,28 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VITMCI - Transform Your Life Science Degree into a Global Career</title>
+    <title>VITMCI - Medical Coding Institute | Transform Your Life Science Degree</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Global Styles */
+        /* Modern Color Scheme */
         :root {
-            --primary: #1a76d2;
-            --secondary: #f5f5f5;
-            --accent: #ff6b00;
-            --dark: #333;
-            --light: #fff;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --light-gray: #e5e7eb;
         }
         
+        /* Global Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
         
         body {
             line-height: 1.6;
             color: var(--dark);
-            background-color: var(--secondary);
+            background-color: var(--light);
+            overflow-x: hidden;
         }
         
         .container {
@@ -36,51 +42,89 @@
         
         .btn {
             display: inline-block;
-            padding: 12px 24px;
-            background-color: var(--accent);
-            color: var(--light);
+            padding: 12px 28px;
+            background-color: var(--primary);
+            color: white;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 50px;
             font-weight: 600;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
         }
         
         .btn:hover {
-            background-color: #e05a00;
+            background-color: var(--primary-dark);
             transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(37, 99, 235, 0.25);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #0da271;
+            box-shadow: 0 6px 12px rgba(16, 185, 129, 0.25);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+            box-shadow: 0 4px 6px rgba(245, 158, 11, 0.2);
+        }
+        
+        .btn-accent:hover {
+            background-color: #e58c08;
+            box-shadow: 0 6px 12px rgba(245, 158, 11, 0.25);
         }
         
         section {
-            padding: 60px 0;
+            padding: 80px 0;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 40px;
-            color: var(--primary);
+            margin-bottom: 50px;
         }
         
         .section-title h2 {
             font-size: 2.5rem;
             margin-bottom: 15px;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
         }
         
         .section-title p {
-            font-size: 1.2rem;
-            color: #666;
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 20px auto 0;
         }
         
         /* Header Styles */
         header {
-            background-color: var(--primary);
-            color: var(--light);
+            background-color: white;
+            color: var(--dark);
             padding: 15px 0;
             position: sticky;
             top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
         }
         
         .header-container {
@@ -90,12 +134,23 @@
         }
         
         .logo {
-            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
             font-weight: 700;
         }
         
-        .logo span {
-            color: var(--accent);
+        .logo-text span {
+            color: var(--primary);
         }
         
         nav ul {
@@ -104,198 +159,348 @@
         }
         
         nav ul li {
-            margin-left: 25px;
+            margin-left: 30px;
         }
         
         nav ul li a {
-            color: var(--light);
+            color: var(--dark);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
         }
         
         nav ul li a:hover {
-            color: var(--accent);
+            color: var(--primary);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
         }
         
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
-            color: var(--light);
+            color: var(--dark);
             font-size: 1.5rem;
             cursor: pointer;
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-4.0.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(120deg, rgba(37, 99, 235, 0.9), rgba(16, 185, 129, 0.8)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
             background-size: cover;
             background-position: center;
-            color: var(--light);
-            padding: 100px 0;
+            color: white;
+            padding: 120px 0 100px;
             text-align: center;
+            position: relative;
         }
         
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
         
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.2rem;
             margin-bottom: 20px;
             line-height: 1.2;
+            font-weight: 700;
         }
         
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
         }
         
         /* Features Section */
         .features {
-            background-color: var(--light);
+            background-color: white;
         }
         
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
         
         .feature-card {
             text-align: center;
-            padding: 30px 20px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: white;
         }
         
         .feature-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
         .feature-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
         }
         
         .feature-card h3 {
             margin-bottom: 15px;
-            color: var(--primary);
+            color: var(--dark);
+            font-size: 1.4rem;
+        }
+        
+        .feature-card p {
+            color: var(--gray);
         }
         
         /* Courses Section */
         .courses {
-            background-color: var(--secondary);
+            background-color: var(--light);
         }
         
         .courses-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
         
         .course-card {
-            background-color: var(--light);
-            border-radius: 8px;
+            background-color: white;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .course-header {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .course-header h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+        
+        .course-duration {
+            opacity: 0.9;
+            font-size: 0.9rem;
         }
         
         .course-content {
-            padding: 20px;
+            padding: 25px;
         }
         
-        .course-card h3 {
+        .course-content ul {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .course-content li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .course-content li:before {
+            content: "✓";
+            color: var(--secondary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .course-price {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
             color: var(--primary);
-            margin-bottom: 15px;
+            margin: 15px 0;
         }
         
-        .course-card ul {
-            list-style-position: inside;
-            margin-bottom: 20px;
-        }
-        
-        .course-card li {
-            margin-bottom: 8px;
+        .course-cta {
+            text-align: center;
         }
         
         /* Eligibility Section */
         .eligibility {
-            background-color: var(--light);
+            background: linear-gradient(to right, white 50%, var(--light) 50%);
         }
         
-        .eligibility-content {
+        .eligibility-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
             align-items: center;
         }
         
-        .degrees-list {
+        .eligibility-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .eligibility-content p {
+            margin-bottom: 30px;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        
+        .degrees-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
         }
         
-        .degree-category {
-            background-color: var(--secondary);
+        .degree-card {
+            background: white;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
         }
         
-        .degree-category h3 {
+        .degree-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .degree-icon {
+            font-size: 2rem;
             color: var(--primary);
             margin-bottom: 15px;
-            font-size: 1.2rem;
         }
         
-        .degree-category ul {
-            list-style-position: inside;
-        }
-        
-        .degree-category li {
-            margin-bottom: 8px;
+        .degree-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
         }
         
         /* Salary Section */
         .salary-growth {
-            background-color: var(--primary);
-            color: var(--light);
+            background: var(--dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .salary-growth::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+        
+        .section-title.white h2 {
+            color: white;
+        }
+        
+        .section-title.white h2::after {
+            background: var(--accent);
+        }
+        
+        .section-title.white p {
+            color: rgba(255, 255, 255, 0.8);
         }
         
         .salary-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            gap: 25px;
+            position: relative;
+            z-index: 2;
         }
         
         .salary-card {
-            background-color: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.1);
             padding: 30px;
-            border-radius: 8px;
+            border-radius: 12px;
             text-align: center;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .salary-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
         }
         
         .salary-card h3 {
             margin-bottom: 15px;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
         }
         
         .salary-amount {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
             color: var(--accent);
             margin-bottom: 15px;
         }
         
+        .salary-card p {
+            opacity: 0.9;
+        }
+        
         /* Placement Section */
         .placement {
-            background-color: var(--light);
+            background-color: white;
+        }
+        
+        .placement-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        .placement-content p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 30px;
         }
         
         .companies-grid {
@@ -307,47 +512,148 @@
         }
         
         .company-logo {
-            background-color: var(--secondary);
+            background: white;
             padding: 15px 25px;
             border-radius: 8px;
             font-weight: 600;
             color: var(--dark);
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 150px;
+            transition: transform 0.3s ease;
+        }
+        
+        .company-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--light);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--gray);
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .testimonial-text::before {
+            content: """;
+            font-size: 3rem;
+            color: var(--primary);
+            position: absolute;
+            left: -10px;
+            top: -15px;
+            opacity: 0.2;
+            font-family: sans-serif;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        
+        .author-details h4 {
+            font-weight: 600;
+        }
+        
+        .author-details p {
+            color: var(--gray);
+            font-size: 0.9rem;
         }
         
         /* Contact Section */
         .contact {
-            background-color: var(--secondary);
+            background: linear-gradient(to right, var(--primary) 50%, white 50%);
         }
         
         .contact-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: 1fr 1fr;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
         
         .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 50px;
+        }
+        
+        .contact-info h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        
+        .contact-details {
+            margin-bottom: 40px;
         }
         
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 15px;
+            margin-bottom: 25px;
         }
         
         .contact-icon {
-            font-size: 1.5rem;
-            color: var(--primary);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .contact-text h3 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
         }
         
         .contact-form {
-            background-color: var(--light);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 50px;
+        }
+        
+        .contact-form h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--dark);
         }
         
         .form-group {
@@ -358,29 +664,39 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
+            color: var(--dark);
         }
         
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            padding: 14px;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
             font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
         }
         
         /* Footer */
         footer {
             background-color: var(--dark);
-            color: var(--light);
-            padding: 40px 0 20px;
+            color: white;
+            padding: 60px 0 20px;
         }
         
         .footer-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
+            gap: 40px;
+            margin-bottom: 40px;
         }
         
         .footer-col h3 {
@@ -389,39 +705,47 @@
             font-size: 1.3rem;
         }
         
+        .footer-col p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
         .footer-col ul {
             list-style: none;
         }
         
         .footer-col ul li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         
         .footer-col ul li a {
-            color: var(--light);
+            color: white;
             text-decoration: none;
             transition: color 0.3s ease;
+            opacity: 0.8;
         }
         
         .footer-col ul li a:hover {
             color: var(--accent);
+            opacity: 1;
         }
         
         .social-links {
             display: flex;
             gap: 15px;
-            margin-top: 15px;
+            margin-top: 20px;
         }
         
         .social-links a {
-            display: inline-block;
+            display: inline-flex;
             width: 40px;
             height: 40px;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            color: var(--light);
-            text-align: center;
-            line-height: 40px;
+            color: white;
+            text-decoration: none;
+            align-items: center;
+            justify-content: center;
             transition: all 0.3s ease;
         }
         
@@ -434,9 +758,29 @@
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
         }
         
         /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .eligibility-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .eligibility {
+                background: white;
+            }
+            
+            .contact {
+                background: var(--primary);
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -469,11 +813,24 @@
             }
             
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
             }
             
             .section-title h2 {
                 font-size: 2rem;
+            }
+            
+            .contact-info, .contact-form {
+                padding: 30px;
             }
         }
     </style>
@@ -482,8 +839,11 @@
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <div class="logo">VIT<span>MCI</span></div>
-            <button class="mobile-menu-btn">☰</button>
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+                <div class="logo-text">VIT<span>MCI</span></div>
+            </div>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
             <nav>
                 <ul class="nav-menu">
                     <li><a href="#home">Home</a></li>
@@ -502,7 +862,10 @@
         <div class="container hero-content">
             <h1>Transform Your Life Science Degree into a Global Career in Medical Coding</h1>
             <p>Village INFO Tech Medical Coding Institute (VITMCI) – Learn. Certify. Get Placed.</p>
-            <a href="#contact" class="btn">Enroll Now</a>
+            <div class="hero-buttons">
+                <a href="#courses" class="btn">Explore Courses</a>
+                <a href="#contact" class="btn btn-secondary">Free Demo Class</a>
+            </div>
         </div>
     </section>
 
@@ -515,22 +878,22 @@
             </div>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">📘</div>
+                    <div class="feature-icon"><i class="fas fa-chalkboard-teacher"></i></div>
                     <h3>Expert Trainers</h3>
                     <p>Learn from industry professionals with real-time experience in medical coding</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🧬</div>
+                    <div class="feature-icon"><i class="fas fa-dna"></i></div>
                     <h3>Special Focus</h3>
                     <p>Designed specifically for Life Science & Nursing Graduates</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">💼</div>
+                    <div class="feature-icon"><i class="fas fa-briefcase"></i></div>
                     <h3>100% Placement</h3>
                     <p>Complete assistance with resume building and interview preparation</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🌍</div>
+                    <div class="feature-icon"><i class="fas fa-globe"></i></div>
                     <h3>Global Certification</h3>
                     <p>Prepare for international certifications (CPC, CRC, CCS)</p>
                 </div>
@@ -547,37 +910,60 @@
             </div>
             <div class="courses-grid">
                 <div class="course-card">
+                    <div class="course-header">
+                        <h3>Foundation in Medical Coding</h3>
+                        <div class="course-duration">2–3 Months</div>
+                    </div>
                     <div class="course-content">
-                        <h3>Foundation in Medical Coding (2–3 Months)</h3>
                         <ul>
                             <li>Medical Terminology & Anatomy</li>
                             <li>Basics of ICD-10-CM & CPT</li>
                             <li>Healthcare Documentation</li>
+                            <li>Practical Assignments</li>
+                            <li>Industry Expert Sessions</li>
                         </ul>
-                        <a href="#contact" class="btn">Learn More</a>
+                        <div class="course-price">Very Affordable Fees</div>
+                        <div class="course-cta">
+                            <a href="#contact" class="btn">Enroll Now</a>
+                        </div>
                     </div>
                 </div>
                 <div class="course-card">
+                    <div class="course-header">
+                        <h3>Specialization Programs</h3>
+                        <div class="course-duration">3–4 Months</div>
+                    </div>
                     <div class="course-content">
-                        <h3>Specialization Programs (3–4 Months)</h3>
                         <ul>
                             <li>HCC Coding (Risk Adjustment)</li>
                             <li>Inpatient (IP) Coding</li>
                             <li>Outpatient (OP) Coding</li>
                             <li>Emergency Dept. (ED) Coding</li>
+                            <li>Real Project Experience</li>
                         </ul>
-                        <a href="#contact" class="btn">Learn More</a>
+                        <div class="course-price">Very Affordable Fees</div>
+                        <div class="course-cta">
+                            <a href="#contact" class="btn">Enroll Now</a>
+                        </div>
                     </div>
                 </div>
                 <div class="course-card">
-                    <div class="course-content">
+                    <div class="course-header">
                         <h3>Certification Preparation</h3>
+                        <div class="course-duration">Flexible Duration</div>
+                    </div>
+                    <div class="course-content">
                         <ul>
-                            <li>CPC (Certified Professional Coder – AAPC)</li>
-                            <li>CRC (Certified Risk Adjustment Coder – AAPC)</li>
-                            <li>CCS (Certified Coding Specialist – AHIMA)</li>
+                            <li>CPC (AAPC)</li>
+                            <li>CRC (AAPC)</li>
+                            <li>CCS (AHIMA)</li>
+                            <li>Mock Tests & Practice</li>
+                            <li>Exam Guidance</li>
                         </ul>
-                        <a href="#contact" class="btn">Learn More</a>
+                        <div class="course-price">Very Affordable Fees</div>
+                        <div class="course-cta">
+                            <a href="#contact" class="btn">Enroll Now</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -587,34 +973,32 @@
     <!-- Eligibility Section -->
     <section class="eligibility" id="eligibility">
         <div class="container">
-            <div class="section-title">
-                <h2>Eligibility</h2>
-                <p>Open for all Life Science and Healthcare graduates</p>
-            </div>
-            <div class="eligibility-content">
-                <div>
+            <div class="eligibility-container">
+                <div class="eligibility-content">
+                    <h2>Who Can Apply?</h2>
                     <p>Our medical coding courses are specifically designed for graduates with backgrounds in life sciences and healthcare. If you have any of the following degrees, you are eligible to apply:</p>
+                    <a href="#contact" class="btn">Check Your Eligibility</a>
                 </div>
-                <div class="degrees-list">
-                    <div class="degree-category">
-                        <h3>Life Science Degrees</h3>
-                        <ul>
-                            <li>Zoology</li>
-                            <li>Botany</li>
-                            <li>Biotechnology</li>
-                            <li>Microbiology</li>
-                            <li>Biochemistry</li>
-                            <li>Genetics</li>
-                        </ul>
+                <div class="degrees-grid">
+                    <div class="degree-card">
+                        <div class="degree-icon"><i class="fas fa-microscope"></i></div>
+                        <h3>Life Sciences</h3>
+                        <p>Zoology, Botany, Biotechnology, Microbiology, Biochemistry, Genetics, etc.</p>
                     </div>
-                    <div class="degree-category">
-                        <h3>Healthcare Degrees</h3>
-                        <ul>
-                            <li>Nursing (B.Sc, GNM, ANM)</li>
-                            <li>Pharmacy (B.Pharm, M.Pharm)</li>
-                            <li>Physiotherapy</li>
-                            <li>Allied Health Sciences</li>
-                        </ul>
+                    <div class="degree-card">
+                        <div class="degree-icon"><i class="fas fa-user-md"></i></div>
+                        <h3>Nursing</h3>
+                        <p>B.Sc Nursing, GNM, ANM</p>
+                    </div>
+                    <div class="degree-card">
+                        <div class="degree-icon"><i class="fas fa-pills"></i></div>
+                        <h3>Pharmacy</h3>
+                        <p>B.Pharm, M.Pharm, Pharm.D</p>
+                    </div>
+                    <div class="degree-card">
+                        <div class="degree-icon"><i class="fas fa-heartbeat"></i></div>
+                        <h3>Allied Health</h3>
+                        <p>Physiotherapy, Lab Technology, Radiology, etc.</p>
                     </div>
                 </div>
             </div>
@@ -624,7 +1008,7 @@
     <!-- Salary Growth Section -->
     <section class="salary-growth" id="salary">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title white">
                 <h2>Salary & Growth in Medical Coding</h2>
                 <p>Lucrative career opportunities for certified medical coders</p>
             </div>
@@ -658,7 +1042,10 @@
         <div class="container">
             <div class="section-title">
                 <h2>100% Placement Assistance</h2>
-                <p>We have tie-ups with leading medical coding companies</p>
+                <p>We have tie-ups with leading medical coding companies across Tamilnadu</p>
+            </div>
+            <div class="placement-content">
+                <p>Our students have been placed in top medical coding companies with excellent salary packages and growth opportunities.</p>
             </div>
             <div class="companies-grid">
                 <div class="company-logo">Omega</div>
@@ -673,46 +1060,93 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Success Stories</h2>
+                <p>What our students say about us</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        VITMCI transformed my career completely. As a Microbiology graduate, I was struggling to find a good job. After completing the medical coding course, I got placed in Omega Healthcare with a handsome salary.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">P</div>
+                        <div class="author-details">
+                            <h4>Priya S</h4>
+                            <p>Placed at Omega Healthcare</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        The trainers at VITMCI are exceptional. They have deep industry knowledge and provide personalized attention. The placement assistance helped me secure a job even before completing the course.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">R</div>
+                        <div class="author-details">
+                            <h4>Rajesh K</h4>
+                            <p>Placed at Access Healthcare</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        I was a nursing professional looking for a career change. VITMCI's medical coding course was perfect for my background. Now I work from home with a US client and earn a great salary.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-details">
+                            <h4>Anitha M</h4>
+                            <p>Working with US Client</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <div class="section-title">
-                <h2>Contact Us</h2>
-                <p>Get in touch for a free demo class and course information</p>
-            </div>
             <div class="contact-container">
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">📞</div>
-                        <div>
-                            <h3>Phone</h3>
-                            <p>+91 8903108605</p>
+                    <h2>Get In Touch</h2>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <div class="contact-text">
+                                <h3>Phone</h3>
+                                <p>+91 8903108605</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div>
-                            <h3>Email</h3>
-                            <p>villageinfotechclient@gmail.com</p>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="contact-text">
+                                <h3>Email</h3>
+                                <p>villageinfotechclient@gmail.com</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div>
-                            <h3>Address</h3>
-                            <p>Institute Head Office Thanjavur, All Classes Online</p>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="contact-text">
+                                <h3>Address</h3>
+                                <p>Institute Head Office Thanjavur, All Classes Online</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">💬</div>
-                        <div>
-                            <h3>Social Media</h3>
-                            <p>Instagram: @VillageItNetWorld</p>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fab fa-instagram"></i></div>
+                            <div class="contact-text">
+                                <h3>Social Media</h3>
+                                <p>Instagram: @VillageItNetWorld</p>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="contact-form">
-                    <h3>Enquiry Form</h3>
+                    <h2>Enquire Now</h2>
                     <form id="enquiryForm">
                         <div class="form-group">
                             <label for="name">Full Name</label>
@@ -728,13 +1162,32 @@
                         </div>
                         <div class="form-group">
                             <label for="qualification">Qualification</label>
-                            <input type="text" id="qualification" required>
+                            <select id="qualification" required>
+                                <option value="">Select Your Qualification</option>
+                                <option value="B.Sc">B.Sc</option>
+                                <option value="M.Sc">M.Sc</option>
+                                <option value="B.Pharm">B.Pharm</option>
+                                <option value="M.Pharm">M.Pharm</option>
+                                <option value="B.Sc Nursing">B.Sc Nursing</option>
+                                <option value="GNM">GNM</option>
+                                <option value="ANM">ANM</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="course">Course Interested In</label>
+                            <select id="course" required>
+                                <option value="">Select Course</option>
+                                <option value="Foundation">Foundation in Medical Coding</option>
+                                <option value="Specialization">Specialization Program</option>
+                                <option value="Certification">Certification Preparation</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
                             <textarea id="message" rows="4" required></textarea>
                         </div>
-                        <button type="submit" class="btn">Submit</button>
+                        <button type="submit" class="btn btn-accent">Submit</button>
                     </form>
                 </div>
             </div>
@@ -749,9 +1202,10 @@
                     <h3>VITMCI</h3>
                     <p>Transform your life science degree into a global career in medical coding with our comprehensive training programs.</p>
                     <div class="social-links">
-                        <a href="#">📱</a>
-                        <a href="#">💬</a>
-                        <a href="#">📸</a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-col">
@@ -760,6 +1214,7 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#courses">Courses</a></li>
                         <li><a href="#eligibility">Eligibility</a></li>
+                        <li><a href="#salary">Salary Growth</a></li>
                         <li><a href="#placement">Placement</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -771,14 +1226,16 @@
                         <li><a href="#">Specialization Programs</a></li>
                         <li><a href="#">Certification Preparation</a></li>
                         <li><a href="#">Placement Program</a></li>
+                        <li><a href="#">Free Demo Class</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Contact Info</h3>
                     <ul>
-                        <li>Phone: +91 8903108605</li>
-                        <li>Email: villageinfotechclient@gmail.com</li>
-                        <li>Address: Thanjavur, Tamilnadu</li>
+                        <li><i class="fas fa-phone"></i> +91 8903108605</li>
+                        <li><i class="fas fa-envelope"></i> villageinfotechclient@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Thanjavur, Tamilnadu</li>
+                        <li><i class="fab fa-instagram"></i> @VillageItNetWorld</li>
                     </ul>
                 </div>
             </div>
