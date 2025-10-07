@@ -6,16 +6,18 @@
     <title>VITMCI - Medical Coding Institute | Transform Your Life Science Degree</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Modern Color Scheme */
+        /* Modern Color Scheme - Teal & Coral Theme */
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #10b981;
-            --accent: #f59e0b;
-            --dark: #1f2937;
-            --light: #f9fafb;
-            --gray: #6b7280;
-            --light-gray: #e5e7eb;
+            --primary: #0e7490;
+            --primary-dark: #155e75;
+            --secondary: #f97316;
+            --accent: #ec4899;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+            --teal-light: #ccfbf1;
+            --coral-light: #ffedd5;
         }
         
         /* Global Styles */
@@ -51,33 +53,33 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+            box-shadow: 0 4px 6px rgba(14, 116, 144, 0.2);
         }
         
         .btn:hover {
             background-color: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(37, 99, 235, 0.25);
+            box-shadow: 0 6px 12px rgba(14, 116, 144, 0.25);
         }
         
         .btn-secondary {
             background-color: var(--secondary);
-            box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
+            box-shadow: 0 4px 6px rgba(249, 115, 22, 0.2);
         }
         
         .btn-secondary:hover {
-            background-color: #0da271;
-            box-shadow: 0 6px 12px rgba(16, 185, 129, 0.25);
+            background-color: #ea580c;
+            box-shadow: 0 6px 12px rgba(249, 115, 22, 0.25);
         }
         
         .btn-accent {
             background-color: var(--accent);
-            box-shadow: 0 4px 6px rgba(245, 158, 11, 0.2);
+            box-shadow: 0 4px 6px rgba(236, 72, 153, 0.2);
         }
         
         .btn-accent:hover {
-            background-color: #e58c08;
-            box-shadow: 0 6px 12px rgba(245, 158, 11, 0.25);
+            background-color: #db2777;
+            box-shadow: 0 6px 12px rgba(236, 72, 153, 0.25);
         }
         
         section {
@@ -200,7 +202,7 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(120deg, rgba(37, 99, 235, 0.9), rgba(16, 185, 129, 0.8)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background: linear-gradient(120deg, rgba(14, 116, 144, 0.9), rgba(249, 115, 22, 0.8)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
             background-size: cover;
             background-position: center;
             color: white;
@@ -354,10 +356,6 @@
             font-weight: 600;
             color: var(--primary);
             margin: 15px 0;
-        }
-        
-        .course-cta {
-            text-align: center;
         }
         
         /* Course Details Section */
@@ -1200,9 +1198,6 @@
                             <li>Industry Expert Sessions</li>
                         </ul>
                         <div class="course-price">Very Affordable Fees</div>
-                        <div class="course-cta">
-                            <a href="#contact" class="btn">Enroll Now</a>
-                        </div>
                     </div>
                 </div>
                 <div class="course-card">
@@ -1219,9 +1214,6 @@
                             <li>Real Project Experience</li>
                         </ul>
                         <div class="course-price">Very Affordable Fees</div>
-                        <div class="course-cta">
-                            <a href="#contact" class="btn">Enroll Now</a>
-                        </div>
                     </div>
                 </div>
                 <div class="course-card">
@@ -1238,9 +1230,6 @@
                             <li>Exam Guidance</li>
                         </ul>
                         <div class="course-price">Very Affordable Fees</div>
-                        <div class="course-cta">
-                            <a href="#contact" class="btn">Enroll Now</a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1256,12 +1245,12 @@
             </div>
             
             <div class="course-tabs">
-    <button class="course-tab active" data-tab="bmct">BMCT</button>
-    <button class="course-tab" data-tab="amct">AMCT</button>
-    <button class="course-tab" data-tab="hcc">HCC Coding Pro</button>
-    <button class="course-tab" data-tab="opcct">OPCCT</button>
-    <button class="course-tab" data-tab="cpc">CPC Exam Prep</button>
-</div>
+                <button class="course-tab active" data-tab="bmct">BMCT</button>
+                <button class="course-tab" data-tab="amct">AMCT</button>
+                <button class="course-tab" data-tab="hcc">HCC Coding Pro</button>
+                <button class="course-tab" data-tab="opcct">OPCCT</button>
+                <button class="course-tab" data-tab="cpc">CPC Exam Prep</button>
+            </div>
             
             <!-- BMCT Course Content -->
             <div class="course-content active" id="bmct-content">
@@ -1318,7 +1307,6 @@
                     
                     <div class="course-footer">
                         <div class="course-price">₹7,000</div>
-                        <a href="#contact" class="btn">Enroll Now</a>
                     </div>
                 </div>
             </div>
@@ -1386,7 +1374,6 @@
                     
                     <div class="course-footer">
                         <div class="course-price">₹10,000</div>
-                        <a href="#contact" class="btn">Enroll Now</a>
                     </div>
                 </div>
             </div>
@@ -1462,7 +1449,6 @@
                     
                     <div class="course-footer">
                         <div class="course-price">₹5,000</div>
-                        <a href="#contact" class="btn">Enroll Now</a>
                     </div>
                 </div>
             </div>
@@ -1522,7 +1508,6 @@
                     
                     <div class="course-footer">
                         <div class="course-price">Contact for Pricing</div>
-                        <a href="#contact" class="btn">Enroll Now</a>
                     </div>
                 </div>
             </div>
@@ -1590,7 +1575,6 @@
                     
                     <div class="course-footer">
                         <div class="course-price">Contact for Pricing</div>
-                        <a href="#contact" class="btn">Enroll Now</a>
                     </div>
                 </div>
             </div>
@@ -1862,15 +1846,6 @@
         
         mobileMenuBtn.addEventListener('click', () => {
             navMenu.classList.toggle('active');
-        });
-        
-        // Form Submission
-        const enquiryForm = document.getElementById('enquiryForm');
-        
-        enquiryForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your enquiry! We will contact you soon.');
-            enquiryForm.reset();
         });
         
         // Smooth Scrolling
