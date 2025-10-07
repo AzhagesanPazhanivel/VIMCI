@@ -6,18 +6,18 @@
     <title>VITMCI - Medical Coding Institute | Transform Your Life Science Degree</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Modern Color Scheme - Teal & Coral Theme */
+        /* Modern Color Scheme */
         :root {
-            --primary: #0e7490;
-            --primary-dark: #155e75;
-            --secondary: #f97316;
-            --accent: #ec4899;
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --gray: #64748b;
-            --light-gray: #e2e8f0;
-            --teal-light: #ccfbf1;
-            --coral-light: #ffedd5;
+            --primary: #3a36e0;
+            --primary-dark: #2a27b3;
+            --secondary: #00c9a7;
+            --accent: #ff6b6b;
+            --dark: #1a1a2e;
+            --light: #f8f9ff;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            --gradient-light: linear-gradient(135deg, rgba(58, 54, 224, 0.1) 0%, rgba(0, 201, 167, 0.1) 100%);
         }
         
         /* Global Styles */
@@ -45,7 +45,7 @@
         .btn {
             display: inline-block;
             padding: 12px 28px;
-            background-color: var(--primary);
+            background: var(--gradient);
             color: white;
             text-decoration: none;
             border-radius: 50px;
@@ -53,33 +53,47 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 6px rgba(14, 116, 144, 0.2);
+            box-shadow: 0 4px 15px rgba(58, 54, 224, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
         }
         
         .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(14, 116, 144, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(58, 54, 224, 0.4);
         }
         
         .btn-secondary {
-            background-color: var(--secondary);
-            box-shadow: 0 4px 6px rgba(249, 115, 22, 0.2);
+            background: linear-gradient(135deg, var(--secondary) 0%, #00a085 100%);
+            box-shadow: 0 4px 15px rgba(0, 201, 167, 0.3);
         }
         
         .btn-secondary:hover {
-            background-color: #ea580c;
-            box-shadow: 0 6px 12px rgba(249, 115, 22, 0.25);
+            box-shadow: 0 8px 20px rgba(0, 201, 167, 0.4);
         }
         
         .btn-accent {
-            background-color: var(--accent);
-            box-shadow: 0 4px 6px rgba(236, 72, 153, 0.2);
+            background: linear-gradient(135deg, var(--accent) 0%, #ff5252 100%);
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
         }
         
         .btn-accent:hover {
-            background-color: #db2777;
-            box-shadow: 0 6px 12px rgba(236, 72, 153, 0.25);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
         }
         
         section {
@@ -107,7 +121,7 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background: var(--primary);
+            background: var(--gradient);
             border-radius: 2px;
         }
         
@@ -120,13 +134,14 @@
         
         /* Header Styles */
         header {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.95);
             color: var(--dark);
             padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
         }
         
         .header-container {
@@ -143,7 +158,9 @@
         
         .logo-icon {
             font-size: 2rem;
-            color: var(--primary);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .logo-text {
@@ -152,7 +169,9 @@
         }
         
         .logo-text span {
-            color: var(--primary);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         nav ul {
@@ -179,7 +198,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--primary);
+            background: var(--gradient);
             transition: width 0.3s ease;
         }
         
@@ -202,7 +221,7 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(120deg, rgba(14, 116, 144, 0.9), rgba(249, 115, 22, 0.8)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background: linear-gradient(120deg, rgba(58, 54, 224, 0.9), rgba(0, 201, 167, 0.8)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
             background-size: cover;
             background-position: center;
             color: white;
@@ -256,6 +275,18 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             background: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
         }
         
         .feature-card:hover {
@@ -266,7 +297,7 @@
         .feature-icon {
             width: 80px;
             height: 80px;
-            background: var(--primary);
+            background: var(--gradient);
             color: white;
             border-radius: 50%;
             display: flex;
@@ -303,6 +334,17 @@
             overflow: hidden;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
         }
         
         .course-card:hover {
@@ -311,7 +353,7 @@
         }
         
         .course-header {
-            background: var(--primary);
+            background: var(--gradient);
             color: white;
             padding: 20px;
             text-align: center;
@@ -358,6 +400,10 @@
             margin: 15px 0;
         }
         
+        .course-cta {
+            text-align: center;
+        }
+        
         /* Course Details Section */
         .course-details {
             background-color: white;
@@ -383,7 +429,7 @@
         }
         
         .course-tab.active {
-            background-color: var(--primary);
+            background: var(--gradient);
             color: white;
         }
         
@@ -413,6 +459,18 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
             max-width: 900px;
             margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .course-detail-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
         }
         
         .course-header {
@@ -426,7 +484,9 @@
         
         .course-title {
             font-size: 1.8rem;
-            color: var(--primary);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .course-meta {
@@ -472,6 +532,12 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .module-item:hover {
+            background: var(--gradient-light);
+            transform: translateX(5px);
         }
         
         .module-item i {
@@ -521,7 +587,9 @@
         .course-price {
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--primary);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         /* Eligibility Section */
@@ -561,6 +629,18 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             text-align: center;
             transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .degree-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
         }
         
         .degree-card:hover {
@@ -569,7 +649,9 @@
         
         .degree-icon {
             font-size: 2rem;
-            color: var(--primary);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 15px;
         }
         
@@ -627,6 +709,18 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .salary-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--accent);
         }
         
         .salary-card:hover {
@@ -687,6 +781,18 @@
             justify-content: center;
             min-width: 150px;
             transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .company-logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient);
         }
         
         .company-logo:hover {
@@ -710,6 +816,18 @@
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
         }
         
         .testimonial-text {
@@ -740,7 +858,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: var(--primary);
+            background: var(--gradient);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -773,7 +891,7 @@
         }
         
         .contact-info {
-            background: var(--primary);
+            background: var(--gradient);
             color: white;
             padding: 50px;
         }
@@ -847,6 +965,7 @@
         .form-group select:focus {
             outline: none;
             border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(58, 54, 224, 0.1);
         }
         
         /* Footer */
@@ -914,7 +1033,7 @@
         }
         
         .social-links a:hover {
-            background-color: var(--accent);
+            background: var(--gradient);
             transform: translateY(-3px);
         }
         
@@ -978,7 +1097,9 @@
         .modal-title {
             font-size: 1.8rem;
             margin-bottom: 20px;
-            color: var(--primary);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .modal-description {
@@ -1198,6 +1319,9 @@
                             <li>Industry Expert Sessions</li>
                         </ul>
                         <div class="course-price">Very Affordable Fees</div>
+                        <div class="course-cta">
+                            <a href="#contact" class="btn">Enroll Now</a>
+                        </div>
                     </div>
                 </div>
                 <div class="course-card">
@@ -1214,6 +1338,9 @@
                             <li>Real Project Experience</li>
                         </ul>
                         <div class="course-price">Very Affordable Fees</div>
+                        <div class="course-cta">
+                            <a href="#contact" class="btn">Enroll Now</a>
+                        </div>
                     </div>
                 </div>
                 <div class="course-card">
@@ -1230,6 +1357,9 @@
                             <li>Exam Guidance</li>
                         </ul>
                         <div class="course-price">Very Affordable Fees</div>
+                        <div class="course-cta">
+                            <a href="#contact" class="btn">Enroll Now</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1245,12 +1375,12 @@
             </div>
             
             <div class="course-tabs">
-                <button class="course-tab active" data-tab="bmct">BMCT</button>
-                <button class="course-tab" data-tab="amct">AMCT</button>
-                <button class="course-tab" data-tab="hcc">HCC Coding Pro</button>
-                <button class="course-tab" data-tab="opcct">OPCCT</button>
-                <button class="course-tab" data-tab="cpc">CPC Exam Prep</button>
-            </div>
+    <button class="course-tab active" data-tab="bmct">BMCT</button>
+    <button class="course-tab" data-tab="amct">AMCT</button>
+    <button class="course-tab" data-tab="hcc">HCC Coding Pro</button>
+    <button class="course-tab" data-tab="opcct">OPCCT</button>
+    <button class="course-tab" data-tab="cpc">CPC Exam Prep</button>
+</div>
             
             <!-- BMCT Course Content -->
             <div class="course-content active" id="bmct-content">
@@ -1307,6 +1437,7 @@
                     
                     <div class="course-footer">
                         <div class="course-price">₹7,000</div>
+                        <a href="#contact" class="btn">Enroll Now</a>
                     </div>
                 </div>
             </div>
@@ -1374,6 +1505,7 @@
                     
                     <div class="course-footer">
                         <div class="course-price">₹10,000</div>
+                        <a href="#contact" class="btn">Enroll Now</a>
                     </div>
                 </div>
             </div>
@@ -1449,6 +1581,7 @@
                     
                     <div class="course-footer">
                         <div class="course-price">₹5,000</div>
+                        <a href="#contact" class="btn">Enroll Now</a>
                     </div>
                 </div>
             </div>
@@ -1508,6 +1641,7 @@
                     
                     <div class="course-footer">
                         <div class="course-price">Contact for Pricing</div>
+                        <a href="#contact" class="btn">Enroll Now</a>
                     </div>
                 </div>
             </div>
@@ -1575,6 +1709,7 @@
                     
                     <div class="course-footer">
                         <div class="course-price">Contact for Pricing</div>
+                        <a href="#contact" class="btn">Enroll Now</a>
                     </div>
                 </div>
             </div>
@@ -1846,6 +1981,15 @@
         
         mobileMenuBtn.addEventListener('click', () => {
             navMenu.classList.toggle('active');
+        });
+        
+        // Form Submission
+        const enquiryForm = document.getElementById('enquiryForm');
+        
+        enquiryForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your enquiry! We will contact you soon.');
+            enquiryForm.reset();
         });
         
         // Smooth Scrolling
