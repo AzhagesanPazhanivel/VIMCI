@@ -317,433 +317,542 @@
             color: var(--gray);
         }
         
-        /* Courses Section */
-        .courses {
-            background-color: var(--light);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+            --success: #059669;
         }
-        
-        .course-card {
-            background-color: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        body {
+            background-color: #f1f5f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section Styling */
+        .course-details {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
             position: relative;
+            display: inline-block;
         }
-        
-        .course-card::before {
+
+        .section-title h2::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--gradient);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
         }
-        
-        .course-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
         }
-        
-        .course-header {
-            background: var(--gradient);
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .course-header h3 {
-            font-size: 1.4rem;
-            margin-bottom: 5px;
-        }
-        
-        .course-duration {
-            opacity: 0.9;
-            font-size: 0.9rem;
-        }
-        
-        .course-content {
-            padding: 25px;
-        }
-        
-        .course-content ul {
-            list-style: none;
-            margin-bottom: 25px;
-        }
-        
-        .course-content li {
-            margin-bottom: 12px;
-            padding-left: 25px;
-            position: relative;
-        }
-        
-        .course-content li:before {
-            content: "✓";
-            color: var(--secondary);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-        
-        .course-price {
-            text-align: center;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin: 15px 0;
-        }
-        
-        .course-cta {
-            text-align: center;
-        }
-        
-        /* Course Details Section */
-        .course-details {
-            background-color: white;
-        }
-        
+
+        /* Tabs Styling */
         .course-tabs {
             display: flex;
             justify-content: center;
-            margin-bottom: 40px;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 15px;
+            margin-bottom: 40px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
-        
+
         .course-tab {
-            padding: 12px 25px;
-            background-color: var(--light-gray);
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
+            padding: 12px 24px;
+            border: 2px solid var(--primary);
+            background: white;
+            color: var(--primary);
+            border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s ease;
-            color: var(--dark);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        
+
+        .course-tab:hover {
+            background: #dbeafe;
+            transform: translateY(-2px);
+        }
+
         .course-tab.active {
-            background: var(--gradient);
+            background: var(--primary);
             color: white;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
-        
-        .course-tab:hover:not(.active) {
-            background-color: var(--gray);
-            color: white;
-        }
-        
+
+        /* Course Content */
         .course-content {
             display: none;
-        }
-        
-        .course-content.active {
-            display: block;
             animation: fadeIn 0.5s ease;
         }
-        
+
+        .course-content.active {
+            display: block;
+        }
+
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        
+
+        /* Course Card */
         .course-detail-card {
-            background-color: white;
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
+            background: white;
+            border-radius: 16px;
             overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
         }
-        
-        .course-detail-card::before {
+
+        .course-detail-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-header {
+            padding: 30px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            position: relative;
+        }
+
+        .course-header::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--gradient);
+            right: 0;
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0 0 0 100%;
         }
-        
-        .course-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        
+
         .course-title {
             font-size: 1.8rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
         }
-        
+
         .course-meta {
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
-        
+
         .meta-item {
             display: flex;
             align-items: center;
             gap: 8px;
-            background-color: var(--light);
-            padding: 8px 15px;
-            border-radius: 50px;
-            font-weight: 500;
+            font-size: 0.95rem;
         }
-        
-        .meta-item i {
-            color: var(--primary);
+
+        .course-level {
+            margin-top: 15px;
+            position: relative;
+            z-index: 1;
         }
-        
-        .modules-list {
-            margin-bottom: 30px;
+
+        .level-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
         }
-        
-        .modules-list h3 {
+
+        .level-badge.beginner {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .level-badge.intermediate {
+            background: var(--accent);
+            color: white;
+        }
+
+        .level-badge.advanced {
+            background: #ef4444;
+            color: white;
+        }
+
+        .level-badge.specialization {
+            background: #8b5cf6;
+            color: white;
+        }
+
+        /* Course Body */
+        .course-body {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .course-body {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .modules-list, .support-details, .learning-outcomes, .prerequisites {
+            margin-bottom: 25px;
+        }
+
+        .modules-list h3, .support-details h3, .learning-outcomes h4, .prerequisites h4 {
+            font-size: 1.3rem;
             margin-bottom: 15px;
             color: var(--dark);
-            font-size: 1.3rem;
-        }
-        
-        .modules-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-        
-        .module-item {
-            padding: 12px 15px;
-            background-color: var(--light);
-            border-radius: 8px;
             display: flex;
             align-items: center;
             gap: 10px;
-            transition: all 0.3s ease;
         }
-        
-        .module-item:hover {
-            background: var(--gradient-light);
-            transform: translateX(5px);
+
+        .modules-list h3::before {
+            content: '\f02d';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: var(--primary);
         }
-        
-        .module-item i {
+
+        .support-details h3::before {
+            content: '\f0a1';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
             color: var(--secondary);
         }
-        
-        .support-details {
-            background-color: var(--light);
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 30px;
+
+        .learning-outcomes h4::before {
+            content: '\f19d';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: var(--accent);
         }
-        
-        .support-details h3 {
-            margin-bottom: 15px;
-            color: var(--dark);
-            font-size: 1.3rem;
+
+        .prerequisites h4::before {
+            content: '\f129';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: #8b5cf6;
         }
-        
-        .support-list {
+
+        .modules-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
         }
-        
+
+        @media (max-width: 576px) {
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .module-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            background: var(--light);
+            transition: all 0.2s ease;
+        }
+
+        .module-item:hover {
+            background: var(--light-gray);
+            transform: translateX(5px);
+        }
+
+        .module-item i {
+            color: var(--success);
+        }
+
+        .support-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
         .support-item {
             display: flex;
             align-items: center;
             gap: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            background: var(--light);
+            transition: all 0.2s ease;
         }
-        
+
+        .support-item:hover {
+            background: var(--light-gray);
+            transform: translateX(5px);
+        }
+
         .support-item i {
-            color: var(--accent);
+            color: var(--primary);
         }
-        
+
+        .learning-outcomes ul, .prerequisites ul {
+            padding-left: 20px;
+        }
+
+        .learning-outcomes li, .prerequisites li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .learning-outcomes li::before, .prerequisites li::before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        /* Course Footer */
         .course-footer {
+            padding: 25px 30px;
+            background: var(--light);
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 30px;
-            padding-top: 20px;
+            gap: 15px;
             border-top: 1px solid var(--light-gray);
         }
-        
+
         .course-price {
             font-size: 1.8rem;
             font-weight: 700;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--primary);
         }
-        
-        /* Eligibility Section */
-        .eligibility {
-            background: linear-gradient(to right, white 50%, var(--light) 50%);
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
         }
-        
-        .eligibility-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
+
+        .btn:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
         }
-        
-        .eligibility-content h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
+
+        /* Comparison Section */
+        .comparison-section {
+            margin-top: 60px;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .comparison-section h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
             color: var(--dark);
         }
-        
-        .eligibility-content p {
-            margin-bottom: 30px;
-            color: var(--gray);
-            font-size: 1.1rem;
-        }
-        
-        .degrees-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-        
-        .degree-card {
-            background: white;
-            padding: 20px;
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            overflow: hidden;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 15px;
             text-align: center;
-            transition: transform 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            border-bottom: 1px solid var(--light-gray);
         }
-        
-        .degree-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--gradient);
-        }
-        
-        .degree-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .degree-icon {
-            font-size: 2rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 15px;
-        }
-        
-        .degree-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
-        
-        /* Salary Section */
-        .salary-growth {
-            background: var(--dark);
+
+        .comparison-table th {
+            background: var(--primary);
             color: white;
-            position: relative;
-            overflow: hidden;
+            font-weight: 600;
         }
-        
-        .salary-growth::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.1;
+
+        .comparison-table tr:nth-child(even) {
+            background: var(--light);
         }
-        
-        .section-title.white h2 {
-            color: white;
+
+        .comparison-table tr:hover {
+            background: #f0f9ff;
         }
-        
-        .section-title.white h2::after {
-            background: var(--accent);
+
+        .comparison-table .feature {
+            text-align: left;
+            font-weight: 600;
+            color: var(--dark);
         }
-        
-        .section-title.white p {
-            color: rgba(255, 255, 255, 0.8);
+
+        @media (max-width: 992px) {
+            .comparison-table {
+                display: block;
+                overflow-x: auto;
+            }
         }
-        
-        .salary-cards {
+
+        /* Testimonials */
+        .testimonials {
+            margin-top: 60px;
+        }
+
+        .testimonials h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            color: var(--dark);
+        }
+
+        .testimonial-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 25px;
-            position: relative;
-            z-index: 2;
         }
-        
-        .salary-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
+
+        .testimonial-card {
+            background: white;
+            padding: 25px;
             border-radius: 12px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             position: relative;
-            overflow: hidden;
         }
-        
-        .salary-card::before {
-            content: '';
+
+        .testimonial-card::before {
+            content: '\f10d';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--accent);
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: var(--light-gray);
         }
-        
-        .salary-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.15);
-        }
-        
-        .salary-card h3 {
+
+        .testimonial-text {
+            font-style: italic;
             margin-bottom: 15px;
-            font-size: 1.3rem;
+            color: var(--gray);
         }
-        
-        .salary-amount {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 15px;
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        
-        .salary-card p {
-            opacity: 0.9;
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
         }
-        
+
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 2px;
+        }
+
+        .author-info p {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .course-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .course-tab {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+                justify-content: center;
+            }
+            
+            .course-header {
+                padding: 20px;
+            }
+            
+            .course-title {
+                font-size: 1.5rem;
+            }
+            
+            .course-body {
+                padding: 20px;
+            }
+            
+            .course-footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
         /* Placement Section */
         .placement {
             background-color: white;
@@ -1367,6 +1476,9 @@
     </section>
 
     <!-- Course Details Section -->
+    </head>
+<body>
+    <!-- Course Details Section -->
     <section class="course-details" id="course-details">
         <div class="container">
             <div class="section-title">
@@ -1375,12 +1487,22 @@
             </div>
             
             <div class="course-tabs">
-    <button class="course-tab active" data-tab="bmct">BMCT</button>
-    <button class="course-tab" data-tab="amct">AMCT</button>
-    <button class="course-tab" data-tab="hcc">HCC Coding Pro</button>
-    <button class="course-tab" data-tab="opcct">OPCCT</button>
-    <button class="course-tab" data-tab="cpc">CPC Exam Prep</button>
-</div>
+                <button class="course-tab active" data-tab="bmct">
+                    <i class="fas fa-graduation-cap"></i> BMCT
+                </button>
+                <button class="course-tab" data-tab="amct">
+                    <i class="fas fa-chart-line"></i> AMCT
+                </button>
+                <button class="course-tab" data-tab="hcc">
+                    <i class="fas fa-stethoscope"></i> HCC Coding Pro
+                </button>
+                <button class="course-tab" data-tab="opcct">
+                    <i class="fas fa-clipboard-check"></i> OPCCT
+                </button>
+                <button class="course-tab" data-tab="cpc">
+                    <i class="fas fa-file-medical-alt"></i> CPC Exam Prep
+                </button>
+            </div>
             
             <!-- BMCT Course Content -->
             <div class="course-content active" id="bmct-content">
@@ -1396,41 +1518,81 @@
                                 <i class="fas fa-certificate"></i>
                                 <span>VITMCI Certificate</span>
                             </div>
+                            <div class="meta-item">
+                                <i class="fas fa-user-graduate"></i>
+                                <span>Beginner Level</span>
+                            </div>
+                        </div>
+                        <div class="course-level">
+                            <span class="level-badge beginner">Beginner</span>
                         </div>
                     </div>
                     
-                    <div class="modules-list">
-                        <h3>Modules Covered</h3>
-                        <div class="modules-grid">
-                            <div class="module-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Medical Terminology</span>
+                    <div class="course-body">
+                        <div>
+                            <div class="modules-list">
+                                <h3>Modules Covered</h3>
+                                <div class="modules-grid">
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Medical Terminology</span>
+                                    </div>
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Anatomy & Physiology (Overview)</span>
+                                    </div>
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>ICD-10-CM Basics</span>
+                                    </div>
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>CPC Exam Awareness</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="module-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Anatomy & Physiology (Overview)</span>
-                            </div>
-                            <div class="module-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>ICD-10-CM Basics</span>
-                            </div>
-                            <div class="module-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>CPC Exam Awareness</span>
+                            
+                            <div class="learning-outcomes">
+                                <h4>What You'll Learn</h4>
+                                <ul>
+                                    <li>Fundamentals of medical coding and terminology</li>
+                                    <li>Basic understanding of ICD-10-CM coding system</li>
+                                    <li>Anatomy and physiology essentials for coders</li>
+                                    <li>Preparation for advanced coding courses</li>
+                                </ul>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="support-details">
-                        <h3>Support & Benefits</h3>
-                        <div class="support-list">
-                            <div class="support-item">
-                                <i class="fas fa-file-alt"></i>
-                                <span>Resume Preparation</span>
+                        
+                        <div>
+                            <div class="support-details">
+                                <h3>Support & Benefits</h3>
+                                <div class="support-list">
+                                    <div class="support-item">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>Resume Preparation</span>
+                                    </div>
+                                    <div class="support-item">
+                                        <i class="fas fa-comments"></i>
+                                        <span>Interview Guidance</span>
+                                    </div>
+                                    <div class="support-item">
+                                        <i class="fas fa-book-open"></i>
+                                        <span>Study Materials</span>
+                                    </div>
+                                    <div class="support-item">
+                                        <i class="fas fa-headset"></i>
+                                        <span>Doubt Clearing Sessions</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="support-item">
-                                <i class="fas fa-comments"></i>
-                                <span>Interview Guidance</span>
+                            
+                            <div class="prerequisites">
+                                <h4>Prerequisites</h4>
+                                <ul>
+                                    <li>Basic computer knowledge</li>
+                                    <li>High school diploma or equivalent</li>
+                                    <li>Interest in healthcare field</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -1446,7 +1608,7 @@
             <div class="course-content" id="amct-content">
                 <div class="course-detail-card">
                     <div class="course-header">
-                      <h2 class="course-title">AMCT – Advanced Medical Coding Training</h2>
+                        <h2 class="course-title">AMCT – Advanced Medical Coding Training</h2>
                         <div class="course-meta">
                             <div class="meta-item">
                                 <i class="fas fa-clock"></i>
@@ -1456,49 +1618,89 @@
                                 <i class="fas fa-certificate"></i>
                                 <span>VITMCI Certificate</span>
                             </div>
+                            <div class="meta-item">
+                                <i class="fas fa-user-graduate"></i>
+                                <span>Intermediate Level</span>
+                            </div>
+                        </div>
+                        <div class="course-level">
+                            <span class="level-badge intermediate">Intermediate</span>
                         </div>
                     </div>
                     
-                    <div class="modules-list">
-                        <h3>Modules Covered</h3>
-                        <div class="modules-grid">
-                            <div class="module-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Detailed Anatomy & Physiology</span>
+                    <div class="course-body">
+                        <div>
+                            <div class="modules-list">
+                                <h3>Modules Covered</h3>
+                                <div class="modules-grid">
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Detailed Anatomy & Physiology</span>
+                                    </div>
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>ICD-10-CM Advanced Coding</span>
+                                    </div>
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>CPT / HCPCS</span>
+                                    </div>
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>OP & IP Coding</span>
+                                    </div>
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Audit & Quality Check</span>
+                                    </div>
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Medical Billing Basics</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="module-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>ICD-10-CM Advanced Coding</span>
-                            </div>
-                            <div class="module-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>CPT / HCPCS</span>
-                            </div>
-                            <div class="module-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>OP & IP Coding</span>
-                            </div>
-                            <div class="module-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Audit & Quality Check</span>
+                            
+                            <div class="learning-outcomes">
+                                <h4>What You'll Learn</h4>
+                                <ul>
+                                    <li>Advanced ICD-10-CM coding techniques</li>
+                                    <li>CPT and HCPCS coding systems</li>
+                                    <li>Inpatient and outpatient coding differences</li>
+                                    <li>Medical auditing and compliance principles</li>
+                                </ul>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="support-details">
-                        <h3>Support & Benefits</h3>
-                        <div class="support-list">
-                            <div class="support-item">
-                                <i class="fas fa-file-alt"></i>
-                                <span>Resume Building</span>
+                        
+                        <div>
+                            <div class="support-details">
+                                <h3>Support & Benefits</h3>
+                                <div class="support-list">
+                                    <div class="support-item">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>Resume Building</span>
+                                    </div>
+                                    <div class="support-item">
+                                        <i class="fas fa-comments"></i>
+                                        <span>Interview Q&A Practice</span>
+                                    </div>
+                                    <div class="support-item">
+                                        <i class="fas fa-briefcase"></i>
+                                        <span>Placement Support</span>
+                                    </div>
+                                    <div class="support-item">
+                                        <i class="fas fa-project-diagram"></i>
+                                        <span>Real-world Projects</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="support-item">
-                                <i class="fas fa-comments"></i>
-                                <span>Interview Q&A Practice</span>
-                            </div>
-                            <div class="support-item">
-                                <i class="fas fa-briefcase"></i>
-                                <span>Placement Support</span>
+                            
+                            <div class="prerequisites">
+                                <h4>Prerequisites</h4>
+                                <ul>
+                                    <li>BMCT certification or equivalent knowledge</li>
+                                    <li>Basic understanding of medical terminology</li>
+                                    <li>Familiarity with ICD-10-CM basics</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -1524,63 +1726,99 @@
                                 <i class="fas fa-certificate"></i>
                                 <span>VITMCI HCC Pro Certificate</span>
                             </div>
+                            <div class="meta-item">
+                                <i class="fas fa-user-graduate"></i>
+                                <span>Advanced Level</span>
+                            </div>
+                        </div>
+                        <div class="course-level">
+                            <span class="level-badge specialization">Specialization</span>
                         </div>
                     </div>
                     
-                    <div class="modules-list">
-                        <h3>Modules Covered</h3>
-                        <div class="modules-grid">
-                            <div class="module-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>ICD-10-CM with HCC Focus</span>
+                    <div class="course-body">
+                        <div>
+                            <div class="modules-list">
+                                <h3>Modules Covered</h3>
+                                <div class="modules-grid">
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>ICD-10-CM with HCC Focus</span>
+                                    </div>
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>RAF Concepts</span>
+                                    </div>
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Chronic Condition Coding</span>
+                                    </div>
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Case Studies & Live Charts</span>
+                                    </div>
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>HCC Audit Training</span>
+                                    </div>
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Risk Adjustment Models</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="module-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>RAF Concepts</span>
-                            </div>
-                            <div class="module-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Chronic Condition Coding</span>
-                            </div>
-                            <div class="module-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Case Studies & Live Charts</span>
-                            </div>
-                            <div class="module-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>HCC Audit Training</span>
+                            
+                            <div class="learning-outcomes">
+                                <h4>What You'll Learn</h4>
+                                <ul>
+                                    <li>Specialized HCC coding methodologies</li>
+                                    <li>Risk Adjustment Factor (RAF) scoring</li>
+                                    <li>Chronic condition documentation requirements</li>
+                                    <li>HCC auditing and compliance standards</li>
+                                </ul>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="support-details">
-                        <h3>Support & Benefits</h3>
-                        <div class="support-list">
-                            <div class="support-item">
-                                <i class="fas fa-file-alt"></i>
-                                <span>Professional Resume Drafting</span>
+                        
+                        <div>
+                            <div class="support-details">
+                                <h3>Support & Benefits</h3>
+                                <div class="support-list">
+                                    <div class="support-item">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>Professional Resume Drafting</span>
+                                    </div>
+                                    <div class="support-item">
+                                        <i class="fas fa-comments"></i>
+                                        <span>Interview Coaching</span>
+                                    </div>
+                                    <div class="support-item">
+                                        <i class="fas fa-briefcase"></i>
+                                        <span>Placement Support</span>
+                                    </div>
+                                    <div class="support-item">
+                                        <i class="fas fa-project-diagram"></i>
+                                        <span>Project Training</span>
+                                    </div>
+                                    <div class="support-item">
+                                        <i class="fas fa-eye"></i>
+                                        <span>Client Project Exposure</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="support-item">
-                                <i class="fas fa-comments"></i>
-                                <span>Interview Coaching</span>
-                            </div>
-                            <div class="support-item">
-                                <i class="fas fa-briefcase"></i>
-                                <span>Placement Support</span>
-                            </div>
-                            <div class="support-item">
-                                <i class="fas fa-project-diagram"></i>
-                                <span>Project Training</span>
-                            </div>
-                            <div class="support-item">
-                                <i class="fas fa-eye"></i>
-                                <span>Client Project Exposure</span>
+                            
+                            <div class="prerequisites">
+                                <h4>Prerequisites</h4>
+                                <ul>
+                                    <li>AMCT certification or equivalent experience</li>
+                                    <li>Strong knowledge of ICD-10-CM coding</li>
+                                    <li>Understanding of medical documentation</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                     
                     <div class="course-footer">
-                        <div class="course-price">₹5,000</div>
+                        <div class="course-price">₹15,000</div>
                         <a href="#contact" class="btn">Enroll Now</a>
                     </div>
                 </div>
@@ -1600,41 +1838,85 @@
                                 <i class="fas fa-certificate"></i>
                                 <span>VITMCI OP Certificate</span>
                             </div>
+                            <div class="meta-item">
+                                <i class="fas fa-user-graduate"></i>
+                                <span>Intermediate Level</span>
+                            </div>
+                        </div>
+                        <div class="course-level">
+                            <span class="level-badge intermediate">Intermediate</span>
                         </div>
                     </div>
                     
-                    <div class="modules-list">
-                        <h3>Modules Covered</h3>
-                        <div class="modules-grid">
-                            <div class="module-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Outpatient & Inpatient Coding</span>
+                    <div class="course-body">
+                        <div>
+                            <div class="modules-list">
+                                <h3>Modules Covered</h3>
+                                <div class="modules-grid">
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Outpatient & Inpatient Coding</span>
+                                    </div>
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>CPT & HCPCS</span>
+                                    </div>
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Denial Management Basics</span>
+                                    </div>
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Compliance Process</span>
+                                    </div>
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Revenue Cycle Overview</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="module-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>CPT & HCPCS</span>
-                            </div>
-                            <div class="module-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Denial Management Basics</span>
-                            </div>
-                            <div class="module-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Compliance Process</span>
+                            
+                            <div class="learning-outcomes">
+                                <h4>What You'll Learn</h4>
+                                <ul>
+                                    <li>Outpatient coding guidelines and practices</li>
+                                    <li>CPT and HCPCS coding for outpatient services</li>
+                                    <li>Denial management and prevention strategies</li>
+                                    <li>Healthcare compliance requirements</li>
+                                </ul>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="support-details">
-                        <h3>Support & Benefits</h3>
-                        <div class="support-list">
-                            <div class="support-item">
-                                <i class="fas fa-file-alt"></i>
-                                <span>Resume Support</span>
+                        
+                        <div>
+                            <div class="support-details">
+                                <h3>Support & Benefits</h3>
+                                <div class="support-list">
+                                    <div class="support-item">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>Resume Support</span>
+                                    </div>
+                                    <div class="support-item">
+                                        <i class="fas fa-briefcase"></i>
+                                        <span>Placement Support</span>
+                                    </div>
+                                    <div class="support-item">
+                                        <i class="fas fa-chart-bar"></i>
+                                        <span>Coding Practice Sets</span>
+                                    </div>
+                                    <div class="support-item">
+                                        <i class="fas fa-handshake"></i>
+                                        <span>Industry Networking</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="support-item">
-                                <i class="fas fa-briefcase"></i>
-                                <span>Placement Support</span>
+                            
+                            <div class="prerequisites">
+                                <h4>Prerequisites</h4>
+                                <ul>
+                                    <li>BMCT certification or equivalent knowledge</li>
+                                    <li>Basic understanding of medical coding</li>
+                                    <li>Familiarity with healthcare terminology</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -1660,49 +1942,89 @@
                                 <i class="fas fa-certificate"></i>
                                 <span>Exam Readiness Certificate (VITMCI)</span>
                             </div>
+                            <div class="meta-item">
+                                <i class="fas fa-user-graduate"></i>
+                                <span>Advanced Level</span>
+                            </div>
+                        </div>
+                        <div class="course-level">
+                            <span class="level-badge advanced">Advanced</span>
                         </div>
                     </div>
                     
-                    <div class="modules-list">
-                        <h3>Modules Covered</h3>
-                        <div class="modules-grid">
-                            <div class="module-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>AAPC CPC Exam Pattern</span>
+                    <div class="course-body">
+                        <div>
+                            <div class="modules-list">
+                                <h3>Modules Covered</h3>
+                                <div class="modules-grid">
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>AAPC CPC Exam Pattern</span>
+                                    </div>
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>ICD-10-CM</span>
+                                    </div>
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>CPT, HCPCS Practice</span>
+                                    </div>
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Mock Exams</span>
+                                    </div>
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Time Management Strategy</span>
+                                    </div>
+                                    <div class="module-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Medical Terminology Review</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="module-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>ICD-10-CM</span>
-                            </div>
-                            <div class="module-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>CPT, HCPCS Practice</span>
-                            </div>
-                            <div class="module-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Mock Exams</span>
-                            </div>
-                            <div class="module-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Time Management Strategy</span>
+                            
+                            <div class="learning-outcomes">
+                                <h4>What You'll Learn</h4>
+                                <ul>
+                                    <li>AAPC CPC exam structure and content areas</li>
+                                    <li>Test-taking strategies and time management</li>
+                                    <li>Comprehensive review of coding guidelines</li>
+                                    <li>Practice with realistic exam simulations</li>
+                                </ul>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="support-details">
-                        <h3>Support & Benefits</h3>
-                        <div class="support-list">
-                            <div class="support-item">
-                                <i class="fas fa-file-alt"></i>
-                                <span>Resume Drafting</span>
+                        
+                        <div>
+                            <div class="support-details">
+                                <h3>Support & Benefits</h3>
+                                <div class="support-list">
+                                    <div class="support-item">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>Resume Drafting</span>
+                                    </div>
+                                    <div class="support-item">
+                                        <i class="fas fa-comments"></i>
+                                        <span>CPC Exam Guidance</span>
+                                    </div>
+                                    <div class="support-item">
+                                        <i class="fas fa-comments"></i>
+                                        <span>Interview Preparation</span>
+                                    </div>
+                                    <div class="support-item">
+                                        <i class="fas fa-tasks"></i>
+                                        <span>Practice Tests & Quizzes</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="support-item">
-                                <i class="fas fa-comments"></i>
-                                <span>CPC Exam Guidance</span>
-                            </div>
-                            <div class="support-item">
-                                <i class="fas fa-comments"></i>
-                                <span>Interview Preparation</span>
+                            
+                            <div class="prerequisites">
+                                <h4>Prerequisites</h4>
+                                <ul>
+                                    <li>AMCT certification or equivalent experience</li>
+                                    <li>Strong knowledge of medical coding principles</li>
+                                    <li>Familiarity with ICD-10-CM, CPT, and HCPCS</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -1713,8 +2035,42 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+            
+            <!-- Course Comparison Table -->
+            <div class="comparison-section">
+                <h3>Course Comparison</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>BMCT</th>
+                            <th>AMCT</th>
+                            <th>HCC Pro</th>
+                            <th>OPCCT</th>
+                            <th>CPC Prep</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="feature">Duration</td>
+                            <td>2 Months</td>
+                            <td>3 Months</td>
+                            <td>3 Months</td>
+                            <td>2 Months</td>
+                            <td>1.5 Months</td>
+                        </tr>
+                        <tr>
+                            <td class="feature">Level</td>
+                            <td>Beginner</td>
+                            <td>Intermediate</td>
+                            <td>Specialization</td>
+                            <td>Intermediate</td>
+                            <td>Advanced</td>
+                        </tr>
+                        <tr>
+                            <td class="feature">Placement Support</td>
+                            <td><i class="fas fa-times" style="color: #ef4444;"></i></td>
+                            <td><i class="fas fa-check" style="color: #10b981;"></i></td
 
     <!-- Eligibility Section -->
     <section class="eligibility" id="eligibility">
