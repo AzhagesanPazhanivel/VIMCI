@@ -317,76 +317,98 @@
             color: var(--gray);
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        /* Courses Section */
+        .courses {
+            background-color: var(--light);
         }
-
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #10b981;
-            --accent: #f59e0b;
-            --light: #f8fafc;
-            --dark: #1e293b;
-            --gray: #64748b;
-            --light-gray: #e2e8f0;
-            --success: #059669;
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
-
-        body {
-            background-color: #f1f5f9;
-            color: var(--dark);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Section Styling */
-        .course-details {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 15px;
+        
+        .course-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
-            display: inline-block;
         }
-
-        .section-title h2::after {
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .course-card::before {
             content: '';
             position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--primary);
-            border-radius: 2px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
         }
-
-        .section-title p {
-            font-size: 1.1rem;
-            color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto;
+        
+        .course-header {
+            padding: 30px 30px 20px;
+            background: var(--gradient-light);
         }
-
-        /* Tabs Styling */
+        
+        .course-header h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .course-duration {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .course-content {
+            padding: 20px 30px 30px;
+        }
+        
+        .course-content ul {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .course-content li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .course-content li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+        
+        .course-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .course-cta {
+            text-align: center;
+        }
+        
+        /* Course Details Section */
+        .course-details {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+        
         .course-tabs {
             display: flex;
             justify-content: center;
@@ -398,7 +420,7 @@
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
-
+        
         .course-tab {
             padding: 12px 24px;
             border: 2px solid var(--primary);
@@ -412,33 +434,33 @@
             align-items: center;
             gap: 8px;
         }
-
+        
         .course-tab:hover {
             background: #dbeafe;
             transform: translateY(-2px);
         }
-
+        
         .course-tab.active {
             background: var(--primary);
             color: white;
             box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
-
+        
         /* Course Content */
         .course-content {
             display: none;
             animation: fadeIn 0.5s ease;
         }
-
+        
         .course-content.active {
             display: block;
         }
-
+        
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
+        
         /* Course Card */
         .course-detail-card {
             background: white;
@@ -447,18 +469,18 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s ease;
         }
-
+        
         .course-detail-card:hover {
             transform: translateY(-5px);
         }
-
+        
         .course-header {
             padding: 30px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
             position: relative;
         }
-
+        
         .course-header::before {
             content: '';
             position: absolute;
@@ -469,14 +491,14 @@
             background: rgba(255, 255, 255, 0.1);
             border-radius: 0 0 0 100%;
         }
-
+        
         .course-title {
             font-size: 1.8rem;
             margin-bottom: 15px;
             position: relative;
             z-index: 1;
         }
-
+        
         .course-meta {
             display: flex;
             gap: 20px;
@@ -484,20 +506,20 @@
             position: relative;
             z-index: 1;
         }
-
+        
         .meta-item {
             display: flex;
             align-items: center;
             gap: 8px;
             font-size: 0.95rem;
         }
-
+        
         .course-level {
             margin-top: 15px;
             position: relative;
             z-index: 1;
         }
-
+        
         .level-badge {
             display: inline-block;
             padding: 5px 12px;
@@ -505,27 +527,27 @@
             font-size: 0.8rem;
             font-weight: 600;
         }
-
+        
         .level-badge.beginner {
             background: var(--secondary);
             color: white;
         }
-
+        
         .level-badge.intermediate {
             background: var(--accent);
             color: white;
         }
-
+        
         .level-badge.advanced {
             background: #ef4444;
             color: white;
         }
-
+        
         .level-badge.specialization {
             background: #8b5cf6;
             color: white;
         }
-
+        
         /* Course Body */
         .course-body {
             padding: 30px;
@@ -533,17 +555,17 @@
             grid-template-columns: 1fr 1fr;
             gap: 30px;
         }
-
+        
         @media (max-width: 768px) {
             .course-body {
                 grid-template-columns: 1fr;
             }
         }
-
+        
         .modules-list, .support-details, .learning-outcomes, .prerequisites {
             margin-bottom: 25px;
         }
-
+        
         .modules-list h3, .support-details h3, .learning-outcomes h4, .prerequisites h4 {
             font-size: 1.3rem;
             margin-bottom: 15px;
@@ -552,47 +574,47 @@
             align-items: center;
             gap: 10px;
         }
-
+        
         .modules-list h3::before {
             content: '\f02d';
             font-family: 'Font Awesome 5 Free';
             font-weight: 900;
             color: var(--primary);
         }
-
+        
         .support-details h3::before {
             content: '\f0a1';
             font-family: 'Font Awesome 5 Free';
             font-weight: 900;
             color: var(--secondary);
         }
-
+        
         .learning-outcomes h4::before {
             content: '\f19d';
             font-family: 'Font Awesome 5 Free';
             font-weight: 900;
             color: var(--accent);
         }
-
+        
         .prerequisites h4::before {
             content: '\f129';
             font-family: 'Font Awesome 5 Free';
             font-weight: 900;
             color: #8b5cf6;
         }
-
+        
         .modules-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px;
         }
-
+        
         @media (max-width: 576px) {
             .modules-grid {
                 grid-template-columns: 1fr;
             }
         }
-
+        
         .module-item {
             display: flex;
             align-items: center;
@@ -602,22 +624,22 @@
             background: var(--light);
             transition: all 0.2s ease;
         }
-
+        
         .module-item:hover {
             background: var(--light-gray);
             transform: translateX(5px);
         }
-
+        
         .module-item i {
             color: var(--success);
         }
-
+        
         .support-list {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
-
+        
         .support-item {
             display: flex;
             align-items: center;
@@ -627,25 +649,25 @@
             background: var(--light);
             transition: all 0.2s ease;
         }
-
+        
         .support-item:hover {
             background: var(--light-gray);
             transform: translateX(5px);
         }
-
+        
         .support-item i {
             color: var(--primary);
         }
-
+        
         .learning-outcomes ul, .prerequisites ul {
             padding-left: 20px;
         }
-
+        
         .learning-outcomes li, .prerequisites li {
             margin-bottom: 8px;
             position: relative;
         }
-
+        
         .learning-outcomes li::before, .prerequisites li::before {
             content: '';
             position: absolute;
@@ -656,7 +678,7 @@
             border-radius: 50%;
             background: var(--primary);
         }
-
+        
         /* Course Footer */
         .course-footer {
             padding: 25px 30px;
@@ -668,32 +690,13 @@
             gap: 15px;
             border-top: 1px solid var(--light-gray);
         }
-
+        
         .course-price {
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary);
         }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: var(--primary);
-            color: white;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid var(--primary);
-        }
-
-        .btn:hover {
-            background: white;
-            color: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
-        }
-
+        
         /* Comparison Section */
         .comparison-section {
             margin-top: 60px;
@@ -702,14 +705,14 @@
             border-radius: 16px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         }
-
+        
         .comparison-section h3 {
             text-align: center;
             margin-bottom: 30px;
             font-size: 1.8rem;
             color: var(--dark);
         }
-
+        
         .comparison-table {
             width: 100%;
             border-collapse: collapse;
@@ -717,58 +720,58 @@
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
         }
-
+        
         .comparison-table th, .comparison-table td {
             padding: 15px;
             text-align: center;
             border-bottom: 1px solid var(--light-gray);
         }
-
+        
         .comparison-table th {
             background: var(--primary);
             color: white;
             font-weight: 600;
         }
-
+        
         .comparison-table tr:nth-child(even) {
             background: var(--light);
         }
-
+        
         .comparison-table tr:hover {
             background: #f0f9ff;
         }
-
+        
         .comparison-table .feature {
             text-align: left;
             font-weight: 600;
             color: var(--dark);
         }
-
+        
         @media (max-width: 992px) {
             .comparison-table {
                 display: block;
                 overflow-x: auto;
             }
         }
-
+        
         /* Testimonials */
         .testimonials {
             margin-top: 60px;
         }
-
+        
         .testimonials h3 {
             text-align: center;
             margin-bottom: 30px;
             font-size: 1.8rem;
             color: var(--dark);
         }
-
+        
         .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 25px;
         }
-
+        
         .testimonial-card {
             background: white;
             padding: 25px;
@@ -776,7 +779,7 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             position: relative;
         }
-
+        
         .testimonial-card::before {
             content: '\f10d';
             font-family: 'Font Awesome 5 Free';
@@ -787,19 +790,19 @@
             font-size: 1.5rem;
             color: var(--light-gray);
         }
-
+        
         .testimonial-text {
             font-style: italic;
             margin-bottom: 15px;
             color: var(--gray);
         }
-
+        
         .testimonial-author {
             display: flex;
             align-items: center;
             gap: 10px;
         }
-
+        
         .author-avatar {
             width: 40px;
             height: 40px;
@@ -811,48 +814,138 @@
             color: white;
             font-weight: bold;
         }
-
+        
         .author-info h4 {
             font-size: 1rem;
             margin-bottom: 2px;
         }
-
+        
         .author-info p {
             font-size: 0.85rem;
             color: var(--gray);
         }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .course-tabs {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .course-tab {
-                width: 100%;
-                max-width: 300px;
-                text-align: center;
-                justify-content: center;
-            }
-            
-            .course-header {
-                padding: 20px;
-            }
-            
-            .course-title {
-                font-size: 1.5rem;
-            }
-            
-            .course-body {
-                padding: 20px;
-            }
-            
-            .course-footer {
-                flex-direction: column;
-                text-align: center;
+        
+        /* Eligibility Section */
+        .eligibility {
+            background-color: white;
+        }
+        
+        .eligibility-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        @media (max-width: 992px) {
+            .eligibility-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
         }
+        
+        .eligibility-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .eligibility-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: var(--gray);
+        }
+        
+        .degrees-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .degree-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            background: white;
+        }
+        
+        .degree-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .degree-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+        }
+        
+        .degree-card h3 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .degree-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Salary Growth Section */
+        .salary-growth {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+        
+        .section-title.white h2,
+        .section-title.white p {
+            color: white;
+        }
+        
+        .salary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .salary-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .salary-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .salary-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .salary-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .salary-card p {
+            opacity: 0.9;
+        }
+        
         /* Placement Section */
         .placement {
             background-color: white;
@@ -990,6 +1083,12 @@
             background: linear-gradient(to right, var(--primary) 50%, white 50%);
         }
         
+        @media (max-width: 768px) {
+            .contact {
+                background: var(--primary);
+            }
+        }
+        
         .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -999,10 +1098,22 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
         
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
         .contact-info {
             background: var(--gradient);
             color: white;
             padding: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-info {
+                padding: 30px;
+            }
         }
         
         .contact-info h2 {
@@ -1039,6 +1150,12 @@
         
         .contact-form {
             padding: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-form {
+                padding: 30px;
+            }
         }
         
         .contact-form h2 {
@@ -1252,25 +1369,7 @@
             color: var(--gray);
         }
         
-        /* Responsive Styles */
-        @media (max-width: 1024px) {
-            .eligibility-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .eligibility {
-                background: white;
-            }
-            
-            .contact {
-                background: var(--primary);
-            }
-            
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-        }
-        
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -1319,22 +1418,33 @@
                 font-size: 2rem;
             }
             
-            .contact-info, .contact-form {
-                padding: 30px;
+            .course-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .course-tab {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+                justify-content: center;
             }
             
             .course-header {
-                flex-direction: column;
-                align-items: flex-start;
+                padding: 20px;
             }
             
-            .course-meta {
-                width: 100%;
+            .course-title {
+                font-size: 1.5rem;
+            }
+            
+            .course-body {
+                padding: 20px;
             }
             
             .course-footer {
                 flex-direction: column;
-                align-items: flex-start;
+                text-align: center;
             }
         }
     </style>
@@ -1475,9 +1585,6 @@
         </div>
     </section>
 
-    <!-- Course Details Section -->
-    </head>
-<body>
     <!-- Course Details Section -->
     <section class="course-details" id="course-details">
         <div class="container">
@@ -1645,7 +1752,7 @@
                                         <i class="fas fa-check-circle"></i>
                                         <span>CPT / HCPCS</span>
                                     </div>
-                                    <div class="module-item">
+                                    <div class="module-tem">
                                         <i class="fas fa-check-circle"></i>
                                         <span>OP & IP Coding</span>
                                     </div>
@@ -2070,7 +2177,75 @@
                         <tr>
                             <td class="feature">Placement Support</td>
                             <td><i class="fas fa-times" style="color: #ef4444;"></i></td>
-                            <td><i class="fas fa-check" style="color: #10b981;"></i></td
+                            <td><i class="fas fa-check" style="color: #10b981;"></i></td>
+                            <td><i class="fas fa-check" style="color: #10b981;"></i></td>
+                            <td><i class="fas fa-check" style="color: #10b981;"></i></td>
+                            <td><i class="fas fa-check" style="color: #10b981;"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="feature">Certification</td>
+                            <td>VITMCI</td>
+                            <td>VITMCI</td>
+                            <td>VITMCI HCC Pro</td>
+                            <td>VITMCI OP</td>
+                            <td>Exam Readiness</td>
+                        </tr>
+                        <tr>
+                            <td class="feature">Price</td>
+                            <td>₹7,000</td>
+                            <td>₹10,000</td>
+                            <td>₹15,000</td>
+                            <td>Contact Us</td>
+                            <td>Contact Us</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Testimonials -->
+            <div class="testimonials">
+                <h3>What Our Students Say</h3>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            The BMCT course gave me a solid foundation in medical coding. The instructors were knowledgeable and supportive throughout the learning process.
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">S</div>
+                            <div class="author-info">
+                                <h4>Saranya R</h4>
+                                <p>BMCT Student</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            After completing the HCC Coding Pro course, I landed a job with a 40% salary increase. The specialized training was exactly what employers were looking for.
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">M</div>
+                            <div class="author-info">
+                                <h4>Manikandan K</h4>
+                                <p>HCC Coding Pro Graduate</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            The CPC Exam Prep course was intensive but worth it. I passed my CPC exam on the first attempt thanks to the comprehensive mock tests and guidance.
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">P</div>
+                            <div class="author-info">
+                                <h4>Priya S</h4>
+                                <p>Certified Professional Coder</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Eligibility Section -->
     <section class="eligibility" id="eligibility">
@@ -2247,6 +2422,43 @@
                         </div>
                     </div>
                 </div>
+                <div class="contact-form">
+                    <h2>Enquiry Form</h2>
+                    <form id="enquiryForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="qualification">Qualification</label>
+                            <input type="text" id="qualification" name="qualification" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="course">Course Interested In</label>
+                            <select id="course" name="course" required>
+                                <option value="">Select a course</option>
+                                <option value="BMCT">BMCT - Basic Medical Coding Training</option>
+                                <option value="AMCT">AMCT - Advanced Medical Coding Training</option>
+                                <option value="HCC">HCC Coding Pro</option>
+                                <option value="OPCCT">OPCCT - Outpatient Coding & Compliance Training</option>
+                                <option value="CPC">CPC Exam Preparation</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Submit Enquiry</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -2371,7 +2583,7 @@
             });
         });
         
-        // Course Tabs Functionality
+        // Course Tabs Functionality - FIXED
         const courseTabs = document.querySelectorAll('.course-tab');
         const courseContents = document.querySelectorAll('.course-content');
         
@@ -2386,7 +2598,12 @@
                 
                 // Show corresponding content
                 const tabId = tab.getAttribute('data-tab');
-                document.getElementById(`${tabId}-content`).classList.add('active');
+                const contentId = `${tabId}-content`;
+                const contentElement = document.getElementById(contentId);
+                
+                if (contentElement) {
+                    contentElement.classList.add('active');
+                }
             });
         });
         
