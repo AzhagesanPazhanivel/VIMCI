@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -901,7 +903,7 @@
         
         /* Salary Growth Section */
         .salary-growth {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+           background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
             color: white;
         }
         
@@ -2501,7 +2503,7 @@
         </div>
     </div>
 
-    <script>
+        <script>
         // Mobile Menu Toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navMenu = document.querySelector('.nav-menu');
@@ -2513,11 +2515,13 @@
         // Form Submission
         const enquiryForm = document.getElementById('enquiryForm');
         
-        enquiryForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your enquiry! We will contact you soon.');
-            enquiryForm.reset();
-        });
+        if (enquiryForm) {
+            enquiryForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your enquiry! We will contact you soon.');
+                enquiryForm.reset();
+            });
+        }
         
         // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -2573,21 +2577,27 @@
         const closeModal = document.querySelector('.close-modal');
         
         // Open modal when Free Demo Class button is clicked
-        demoBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            demoModal.classList.add('active');
-        });
+        if (demoBtn) {
+            demoBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                demoModal.classList.add('active');
+            });
+        }
         
         // Open modal when Free Demo Class link in footer is clicked
-        footerDemoBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            demoModal.classList.add('active');
-        });
+        if (footerDemoBtn) {
+            footerDemoBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                demoModal.classList.add('active');
+            });
+        }
         
         // Close modal when X is clicked
-        closeModal.addEventListener('click', () => {
-            demoModal.classList.remove('active');
-        });
+        if (closeModal) {
+            closeModal.addEventListener('click', () => {
+                demoModal.classList.remove('active');
+            });
+        }
         
         // Close modal when clicking outside the modal content
         window.addEventListener('click', (e) => {
